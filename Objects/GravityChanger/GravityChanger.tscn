@@ -1,0 +1,99 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Objects/GravityChanger/GravityChanger.gd" type="Script" id=1]
+[ext_resource path="res://gfx/trampoline/trampoline.svg" type="Texture" id=2]
+[ext_resource path="res://gfx/bullet.png" type="Texture" id=3]
+
+[sub_resource type="RectangleShape2D" id=1]
+
+custom_solver_bias = 0.0
+extents = Vector2( 16, 8 )
+
+[sub_resource type="ParticlesMaterial" id=2]
+
+render_priority = 0
+trail_divisor = 1
+emission_shape = 1
+emission_sphere_radius = 10.0
+flag_align_y = false
+flag_rotate_y = false
+flag_disable_z = true
+spread = 45.0
+flatness = 0.0
+gravity = Vector3( 0, -98, 0 )
+initial_velocity = 1.0
+initial_velocity_random = 0.0
+angular_velocity = 0.0
+angular_velocity_random = 0.0
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+linear_accel = 0.0
+linear_accel_random = 0.0
+radial_accel = 0.0
+radial_accel_random = 0.0
+tangential_accel = 0.0
+tangential_accel_random = 0.0
+damping = 0.0
+damping_random = 0.0
+angle = 0.0
+angle_random = 0.0
+scale = 0.2
+scale_random = 0.2
+color = Color( 0.230469, 1, 0.69339, 1 )
+hue_variation = 0.1
+hue_variation_random = 0.7
+anim_speed = 0.0
+anim_speed_random = 0.0
+anim_offset = 0.0
+anim_offset_random = 0.0
+anim_loop = false
+_sections_unfolded = [ "Color" ]
+
+[node name="GravityChanger" type="Area2D"]
+
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+script = ExtResource( 1 )
+_sections_unfolded = [ "Audio Bus", "Collision", "Transform" ]
+
+[node name="trampoline" type="Sprite" parent="." index="0"]
+
+modulate = Color( 0, 0.601563, 1, 1 )
+texture = ExtResource( 2 )
+_sections_unfolded = [ "Material", "Visibility" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1"]
+
+position = Vector2( 0, 8 )
+shape = SubResource( 1 )
+
+[node name="Particles2D" type="Particles2D" parent="." index="2"]
+
+emitting = true
+amount = 10
+lifetime = 0.6
+one_shot = false
+preprocess = 2.0
+speed_scale = 2.0
+explosiveness = 0.0
+randomness = 0.5
+fixed_fps = 0
+fract_delta = true
+visibility_rect = Rect2( -100, -100, 200, 200 )
+local_coords = true
+draw_order = 0
+process_material = SubResource( 2 )
+texture = ExtResource( 3 )
+normal_map = null
+h_frames = 1
+v_frames = 1
+_sections_unfolded = [ "Process Material", "Textures", "Time" ]
+
+[connection signal="body_entered" from="." to="." method="_on_GravityChanger_body_entered"]
+
+

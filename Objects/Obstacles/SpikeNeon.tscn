@@ -1,0 +1,32 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Objects/Obstacles/SpikeNeon.gd" type="Script" id=1]
+[ext_resource path="res://gfx/obstacles/spike_neon.svg" type="Texture" id=2]
+
+[node name="SpikeNeon" type="Area2D"]
+
+scale = Vector2( 0.5, 0.5 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+script = ExtResource( 1 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="spike_neon" type="Sprite" parent="." index="0"]
+
+texture = ExtResource( 2 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." index="1"]
+
+build_mode = 0
+polygon = PoolVector2Array( -16, 16, 16, 16, 0, -16, -16, 16 )
+_sections_unfolded = [ "Transform" ]
+
+[connection signal="body_entered" from="." to="." method="_on_SpikeNeon_body_entered"]
+
+

@@ -1,0 +1,28 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Objects/Triggers/_TriggerBase.tscn" type="PackedScene" id=1]
+
+[sub_resource type="GDScript" id=1]
+
+script/source = "extends \"_TriggerBase.gd\"
+
+export(int, 100, 1000) var new_speed = 200
+
+func _ready():
+	._ready()
+	
+func _on__TriggerBase_body_entered(body):
+	if body.is_in_group(\"hero\"):
+		body.get_node(\"States/Standard\").speed = new_speed
+"
+
+[node name="TriggerSpeed" instance=ExtResource( 1 )]
+
+script = SubResource( 1 )
+new_speed = 200
+
+[node name="Label" parent="." index="1"]
+
+text = "Speed"
+
+
