@@ -10,7 +10,7 @@ var key_maps = {
 var motion = Vector2(0, 0)
 
 func jump(host):
-	motion.y = -jump_strength
+	motion.y = -jump_strength * host.gravity_vector
 
 func handle_input(host, event):
 	if event.is_action_pressed("move_jump"):

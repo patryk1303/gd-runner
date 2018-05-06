@@ -4,6 +4,7 @@ export(NodePath) var target_path = null
 var target
 
 var new_camera_zoom = 0.5
+var new_camera_rotate = 0
 
 func _ready():
 	target = get_node(target_path)
@@ -23,3 +24,7 @@ func _physics_process(delta):
 	var current_zoom = $Camera2D.zoom[0]
 	var new_zoom = lerp(current_zoom, new_camera_zoom, 0.05)
 	$Camera2D.zoom = Vector2(new_zoom, new_zoom)
+	
+	var current_rotate = $Camera2D.rotation
+	var new_rotate = lerp(current_rotate, new_camera_rotate, 0.1)
+	$Camera2D.rotation = new_rotate
