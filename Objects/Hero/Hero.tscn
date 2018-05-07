@@ -80,12 +80,28 @@ exclude_parent = true
 cast_to = Vector2( 8, 0 )
 collision_mask = 1
 
-[node name="RayLeft" type="RayCast2D" parent="Rays" index="1"]
+[node name="RayRight2" type="RayCast2D" parent="Rays" index="1"]
+
+position = Vector2( 24, -24 )
+enabled = true
+exclude_parent = true
+cast_to = Vector2( 8, -8 )
+collision_mask = 1
+
+[node name="RayLeft" type="RayCast2D" parent="Rays" index="2"]
 
 position = Vector2( -24, 24 )
 enabled = true
 exclude_parent = true
 cast_to = Vector2( -8, 0 )
+collision_mask = 1
+
+[node name="RayLeft2" type="RayCast2D" parent="Rays" index="3"]
+
+position = Vector2( -24, -24 )
+enabled = true
+exclude_parent = true
+cast_to = Vector2( -8, -8 )
 collision_mask = 1
 
 [node name="States" type="Node" parent="." index="3"]

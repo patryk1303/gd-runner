@@ -1,7 +1,16 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Objects/Obstacles/SpikeNeon.gd" type="Script" id=1]
-[ext_resource path="res://gfx/obstacles/spike_neon.svg" type="Texture" id=2]
+[ext_resource path="res://Objects/Shades/shader_sprite_pixel_outline.shader" type="Shader" id=2]
+[ext_resource path="res://gfx/obstacles/spike_neon.svg" type="Texture" id=3]
+
+[sub_resource type="ShaderMaterial" id=1]
+
+render_priority = 0
+shader = ExtResource( 2 )
+shader_param/outline_intensity = 0.1
+shader_param/outline_color = Color( 0.0540161, 0.691406, 0.228302, 1 )
+_sections_unfolded = [ "shader_param" ]
 
 [node name="SpikeNeon" type="Area2D"]
 
@@ -18,8 +27,9 @@ _sections_unfolded = [ "Transform" ]
 
 [node name="spike_neon" type="Sprite" parent="." index="0"]
 
-texture = ExtResource( 2 )
-_sections_unfolded = [ "Transform" ]
+material = SubResource( 1 )
+texture = ExtResource( 3 )
+_sections_unfolded = [ "Material", "Transform" ]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." index="1"]
 

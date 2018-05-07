@@ -44,9 +44,14 @@ func _physics_process(delta):
 	
 	if Input.is_key_pressed(KEY_R):
 		get_tree().reload_current_scene()
-		
+	
 	if $Rays/RayRight.is_colliding():
 		var collider = $Rays/RayRight.get_collider()
+		if collider.is_in_group(globals.GROUP_TILES):
+			die()
+			
+	if $Rays/RayRight2.is_colliding():
+		var collider = $Rays/RayRight2.get_collider()
 		if collider.is_in_group(globals.GROUP_TILES):
 			die()
 	

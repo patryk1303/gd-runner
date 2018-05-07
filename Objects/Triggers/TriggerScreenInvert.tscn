@@ -1,0 +1,33 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Objects/Triggers/_TriggerBase.tscn" type="PackedScene" id=1]
+
+[sub_resource type="GDScript" id=1]
+
+script/source = "extends \"_TriggerBase.gd\"
+
+export(float, 0, 1, 0.1) var new_intensity
+
+func _ready():
+	._ready()
+	
+func _on__TriggerBase_body_entered(body):
+	if body.is_in_group(\"hero\"):
+		target.new_intensity = new_intensity
+"
+
+[node name="TriggerScreenInvert" instance=ExtResource( 1 )]
+
+script = SubResource( 1 )
+new_intensity = null
+
+[node name="Label" parent="." index="1"]
+
+margin_left = -15.0
+margin_top = 22.0
+margin_right = 28.0
+margin_bottom = 53.0
+text = "Screen
+Invert"
+
+

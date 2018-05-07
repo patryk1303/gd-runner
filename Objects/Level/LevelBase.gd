@@ -8,6 +8,7 @@ func _ready():
 	
 func _physics_process(delta):
 	$cloud1.position.x = $Hero.position.x
+	$Shades.position = $Hero.position
 	
 func _on_hero_die():
 	stop_music()

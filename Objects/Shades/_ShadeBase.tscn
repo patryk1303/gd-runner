@@ -1,0 +1,36 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Objects/Shades/shader_brightness.shader" type="Shader" id=1]
+
+[sub_resource type="ShaderMaterial" id=1]
+
+render_priority = 0
+shader = ExtResource( 1 )
+shader_param/brightness = 1.0
+shader_param/contrast = 1.0
+shader_param/saturation = 1.0
+_sections_unfolded = [ "shader_param" ]
+
+[sub_resource type="Curve" id=2]
+
+min_value = 0.0
+max_value = 1.0
+bake_resolution = 100
+_data = [ Vector2( 0.206553, 0.295898 ), 0.0, 0.0, 0, 0, Vector2( 0.882585, 0.467773 ), 0.0, 0.0, 0, 0 ]
+_sections_unfolded = [ "Resource" ]
+
+[sub_resource type="CurveTexture" id=3]
+
+flags = 4
+width = 2048
+curve = SubResource( 2 )
+_sections_unfolded = [ "Resource" ]
+
+[node name="_ShadeBase" type="Sprite" index="0"]
+
+material = SubResource( 1 )
+scale = Vector2( 1, 2048 )
+texture = SubResource( 3 )
+_sections_unfolded = [ "Material" ]
+
+
