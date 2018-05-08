@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Objects/Hero/Hero.gd" type="Script" id=1]
 [ext_resource path="res://icon.png" type="Texture" id=2]
 [ext_resource path="res://Objects/Hero/states/standard.gd" type="Script" id=3]
-[ext_resource path="res://gfx/bullet.png" type="Texture" id=4]
+[ext_resource path="res://Objects/Hero/states/left_right.gd" type="Script" id=4]
+[ext_resource path="res://gfx/bullet.png" type="Texture" id=5]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -50,7 +51,7 @@ anim_offset_random = 0.0
 anim_loop = false
 _sections_unfolded = [ "Angle", "Angular Velocity", "Animation", "Color", "Damping", "Hue Variation", "Initial Velocity", "Linear Accel", "Orbit Velocity", "Radial Accel", "Scale", "Tangential Accel", "Trail" ]
 
-[node name="Hero" type="KinematicBody2D" groups=[
+[node name="Hero" type="KinematicBody2D" index="0" groups=[
 "hero",
 ]]
 
@@ -112,7 +113,13 @@ script = ExtResource( 3 )
 jump_strength = 300
 speed = 200
 
-[node name="Stagger" type="Node" parent="States" index="1"]
+[node name="LeftRight" type="Node" parent="States" index="1"]
+
+script = ExtResource( 4 )
+speed = 200
+max_gravity = 300
+
+[node name="Stagger" type="Node" parent="States" index="2"]
 
 [node name="Timers" type="Node2D" parent="." index="4"]
 
@@ -141,7 +148,7 @@ visibility_rect = Rect2( -100, -100, 200, 200 )
 local_coords = true
 draw_order = 0
 process_material = SubResource( 2 )
-texture = ExtResource( 4 )
+texture = ExtResource( 5 )
 normal_map = null
 h_frames = 1
 v_frames = 1

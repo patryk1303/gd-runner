@@ -1,7 +1,5 @@
 extends '_i_state.gd'
 
-const RAY_LEN = 8
-
 export(int) var jump_strength = 300
 export(int) var speed = 200
 
@@ -13,6 +11,19 @@ var motion = Vector2(0, 0)
 
 func jump(host):
 	motion.y = -jump_strength * host.gravity_vector
+	
+func enter(host):
+	var ray_right = host.get_node("Rays/RayRight")
+	var ray_right_2 = host.get_node("Rays/RayRight2")
+	
+	var ray_left = host.get_node("Rays/RayLeft")
+	var ray_left_2 = host.get_node("Rays/RayLeft2")
+	
+	ray_right.cast_to = Vector2(globals.RAY_LEN, 0)
+	ray_left.cast_to = Vector2(-globals.RAY_LEN, 0)
+	
+	ray_right_2.cast_to = Vector2(0, 0)
+	ray_left_2.cast_to = Vector2(0, 0)
 
 func handle_input(host, event):
 	if event.is_action_pressed("move_jump"):
@@ -44,8 +55,8 @@ func update(host, delta):
 
 	if key_maps.jump and host.is_on_floor():
 		jump(host)
-		ray_right_2.cast_to = Vector2(RAY_LEN, -RAY_LEN/4)
-		ray_left_2.cast_to = Vector2(-RAY_LEN, -RAY_LEN/4)
+		ray_right_2.cast_to = Vector2(globals.RAY_LEN, -globals.RAY_LEN/4)
+		ray_left_2.cast_to = Vector2(-globals.RAY_LEN, -globals.RAY_LEN/4)
 	elif !key_maps.jump and host.is_on_floor():
 		ray_right_2.cast_to = Vector2(0, 0)
 		ray_left_2.cast_to = Vector2(0, 0)

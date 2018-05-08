@@ -12,6 +12,7 @@ var gravity_vector = 1
 
 onready var states_map = {
 	standard = $States/Standard,
+	leftright = $States/LeftRight,
 	stagger = $States/Stagger
 }
 
@@ -28,6 +29,11 @@ func jump():
 		
 func change_gravity():
 	gravity_vector *= -1
+	
+func check_ray_collide(ray):
+	var collider = ray.get_collider()
+	if collider and collider.is_in_group(globals.GROUP_TILES):
+		die()
 
 func _ready():
 	alive = true
@@ -45,15 +51,10 @@ func _physics_process(delta):
 	if Input.is_key_pressed(KEY_R):
 		get_tree().reload_current_scene()
 	
-	if $Rays/RayRight.is_colliding():
-		var collider = $Rays/RayRight.get_collider()
-		if collider.is_in_group(globals.GROUP_TILES):
-			die()
-			
-	if $Rays/RayRight2.is_colliding():
-		var collider = $Rays/RayRight2.get_collider()
-		if collider.is_in_group(globals.GROUP_TILES):
-			die()
+	check_ray_collide($Rays/RayRight)
+	check_ray_collide($Rays/RayRight2)
+	check_ray_collide($Rays/RayLeft)
+	check_ray_collide($Rays/RayLeft2)
 	
 	if state_name:
 		_change_state(state_name)

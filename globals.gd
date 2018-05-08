@@ -8,5 +8,7 @@ const UP = Vector2(0, -1)
 
 const GROUP_TILES = "tiles"
 
+const RAY_LEN = 8
+
 func modulo(num, mod):
 	return num - mod * floor(num / mod)
