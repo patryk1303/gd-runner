@@ -2,6 +2,7 @@ extends KinematicBody2D
 
 signal state_changed
 signal died
+signal die_timer
 
 var states_stack = []
 var current_state = null
@@ -17,11 +18,12 @@ onready var states_map = {
 }
 
 func die():
+	if alive:
+		emit_signal("died")
 	$Timers/DieTimer.start()
 	$icon.hide()
 	$DieParticles.emitting = true
 	alive = false
-	emit_signal("died")
 	
 func jump():
 	if current_state.has_method("jump"):
@@ -84,4 +86,4 @@ func _change_state(state_name):
 	pass
 
 func _on_DieTimer_timeout():
-	get_tree().reload_current_scene()
+	emit_signal("die_timer")

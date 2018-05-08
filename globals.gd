@@ -1,5 +1,7 @@
 extends Node
 
+export(int) var level_attemps = 1
+
 const PREV = 'previous'
 const NEXT = 'next'
 

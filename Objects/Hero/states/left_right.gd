@@ -55,8 +55,6 @@ func update(host, delta):
 	elif key_maps.right:
 		force.x = speed
 		
-	print(motion)
-		
 	motion.x = force.x
 	motion.y = clamp(motion.y, 100, max_gravity)
 	
