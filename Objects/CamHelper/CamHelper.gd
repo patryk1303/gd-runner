@@ -6,8 +6,19 @@ var target
 var new_camera_zoom = 0.5
 var new_camera_rotate = 0
 
+var is_child_node = false
+
 func _ready():
-	target = get_node(target_path)
+	var temp_target = get_node(String(target_path) + "/Target")
+	
+	if not temp_target:
+		target = get_node(target_path)
+	else:
+		is_child_node = true
+		target = temp_target
+		
+	print(target)
+		
 	$icon.hide()
 	
 func _input(event):
@@ -19,7 +30,12 @@ func _input(event):
 		new_camera_zoom = 0.25
 
 func _physics_process(delta):
-	position += (target.position - position + Vector2(64, 0)) * .5
+	var target_position = target.position
+	
+	if is_child_node:
+		target_position = target.position + target.get_parent().position
+	
+	position += (target_position - position + Vector2(64, 0)) * .5
 	
 	var current_zoom = $Camera2D.zoom[0]
 	var new_zoom = lerp(current_zoom, new_camera_zoom, 0.05)

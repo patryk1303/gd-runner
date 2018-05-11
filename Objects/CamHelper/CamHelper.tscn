@@ -3,7 +3,7 @@
 [ext_resource path="res://Objects/CamHelper/CamHelper.gd" type="Script" id=1]
 [ext_resource path="res://icon.png" type="Texture" id=2]
 
-[node name="CamHelper" type="Node2D" groups=[
+[node name="CamHelper" type="Node2D" index="0" groups=[
 "camera",
 ]]
 

@@ -19,11 +19,15 @@ func enter(host):
 	var ray_left = host.get_node("Rays/RayLeft")
 	var ray_left_2 = host.get_node("Rays/RayLeft2")
 	
+	var target = host.get_node("Target")
+	
 	ray_right.cast_to = Vector2(globals.RAY_LEN, 0)
 	ray_left.cast_to = Vector2(-globals.RAY_LEN, 0)
 	
 	ray_right_2.cast_to = Vector2(0, 0)
 	ray_left_2.cast_to = Vector2(0, 0)
+	
+	target.position = Vector2(0, 0)
 
 func handle_input(host, event):
 	if event.is_action_pressed("move_jump"):

@@ -73,6 +73,8 @@ shape = SubResource( 1 )
 
 [node name="Rays" type="Node2D" parent="." index="2"]
 
+editor/display_folded = true
+
 [node name="RayRight" type="RayCast2D" parent="Rays" index="0"]
 
 position = Vector2( 24, 24 )
@@ -106,6 +108,8 @@ cast_to = Vector2( -8, -8 )
 collision_mask = 1
 
 [node name="States" type="Node" parent="." index="3"]
+
+editor/display_folded = true
 
 [node name="Standard" type="Node" parent="States" index="0"]
 
@@ -153,6 +157,17 @@ normal_map = null
 h_frames = 1
 v_frames = 1
 _sections_unfolded = [ "Drawing", "Process Material", "Textures", "Time" ]
+
+[node name="Target" type="Position2D" parent="." index="6"]
+
+_sections_unfolded = [ "Transform" ]
+
+[node name="icon" type="Sprite" parent="Target" index="0"]
+
+modulate = Color( 1, 0, 0, 1 )
+scale = Vector2( 0.1, 0.1 )
+texture = ExtResource( 2 )
+_sections_unfolded = [ "Material", "Transform", "Visibility" ]
 
 [connection signal="timeout" from="Timers/DieTimer" to="." method="_on_DieTimer_timeout"]
 
