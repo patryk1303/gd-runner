@@ -11,22 +11,22 @@ var motion = Vector2(0, 0)
 
 func jump(host):
 	motion.y = -jump_strength * host.gravity_vector
-	
+
 func enter(host):
 	var ray_right = host.get_node("Rays/RayRight")
 	var ray_right_2 = host.get_node("Rays/RayRight2")
-	
+
 	var ray_left = host.get_node("Rays/RayLeft")
 	var ray_left_2 = host.get_node("Rays/RayLeft2")
-	
+
 	var target = host.get_node("Target")
-	
+
 	ray_right.cast_to = Vector2(globals.RAY_LEN, 0)
 	ray_left.cast_to = Vector2(-globals.RAY_LEN, 0)
-	
+
 	ray_right_2.cast_to = Vector2(0, 0)
 	ray_left_2.cast_to = Vector2(0, 0)
-	
+
 	target.position = Vector2(0, 0)
 
 func handle_input(host, event):
@@ -34,12 +34,12 @@ func handle_input(host, event):
 #		host.get_node("Rays/RayLeft").cast_to = Vector2(-8, 0)
 #		host.get_node("Rays/RayRight").cast_to = Vector2(8, 0)
 		key_maps.jump = true
-	
+
 	if event.is_action_released("move_jump"):
 #		host.get_node("Rays/RayLeft").cast_to = Vector2(-4, 0)
 #		host.get_node("Rays/RayRight").cast_to = Vector2(4, 0)
 		key_maps.jump = false
-	
+
 	return
 
 func update(host, delta):

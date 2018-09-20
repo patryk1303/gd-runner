@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Objects/Hero/Hero.gd" type="Script" id=1]
 [ext_resource path="res://icon.png" type="Texture" id=2]
 [ext_resource path="res://Objects/Hero/states/standard.gd" type="Script" id=3]
 [ext_resource path="res://Objects/Hero/states/left_right.gd" type="Script" id=4]
-[ext_resource path="res://gfx/bullet.png" type="Texture" id=5]
+[ext_resource path="res://Objects/Hero/states/flappy.gd" type="Script" id=5]
+[ext_resource path="res://gfx/bullet.png" type="Texture" id=6]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -73,8 +74,6 @@ shape = SubResource( 1 )
 
 [node name="Rays" type="Node2D" parent="." index="2"]
 
-editor/display_folded = true
-
 [node name="RayRight" type="RayCast2D" parent="Rays" index="0"]
 
 position = Vector2( 24, 24 )
@@ -109,8 +108,6 @@ collision_mask = 1
 
 [node name="States" type="Node" parent="." index="3"]
 
-editor/display_folded = true
-
 [node name="Standard" type="Node" parent="States" index="0"]
 
 script = ExtResource( 3 )
@@ -124,6 +121,14 @@ speed = 200
 max_gravity = 300
 
 [node name="Stagger" type="Node" parent="States" index="2"]
+
+[node name="Flappy" type="Node" parent="States" index="3"]
+
+script = ExtResource( 5 )
+jump_force = 200
+speed = 200
+max_gravity = 250
+direction = 1
 
 [node name="Timers" type="Node2D" parent="." index="4"]
 
@@ -152,7 +157,7 @@ visibility_rect = Rect2( -100, -100, 200, 200 )
 local_coords = true
 draw_order = 0
 process_material = SubResource( 2 )
-texture = ExtResource( 5 )
+texture = ExtResource( 6 )
 normal_map = null
 h_frames = 1
 v_frames = 1

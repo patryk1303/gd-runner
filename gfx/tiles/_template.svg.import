@@ -7,10 +7,7 @@ path="res://.import/_template.svg-ba065260a4542ac42258bf4ee8f95bb8.stex"
 [deps]
 
 source_file="res://gfx/tiles/_template.svg"
-source_md5="118096b361bdf9cfbcacda8f1bea8a9c"
-
 dest_files=[ "res://.import/_template.svg-ba065260a4542ac42258bf4ee8f95bb8.stex" ]
-dest_md5="c49fb6c737435a33abedb0871166843a"
 
 [params]
 

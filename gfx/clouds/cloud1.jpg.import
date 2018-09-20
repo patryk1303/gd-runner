@@ -7,10 +7,7 @@ path="res://.import/cloud1.jpg-5749a8351ee0ca7680164d55d005c2c7.stex"
 [deps]
 
 source_file="res://gfx/clouds/cloud1.jpg"
-source_md5="c4679f2b00befed39d4622bac037ecb3"
-
 dest_files=[ "res://.import/cloud1.jpg-5749a8351ee0ca7680164d55d005c2c7.stex" ]
-dest_md5="8c6cad16a664e63958569664b239c457"
 
 [params]
 

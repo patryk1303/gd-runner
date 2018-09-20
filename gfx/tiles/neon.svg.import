@@ -7,10 +7,7 @@ path="res://.import/neon.svg-44afa9d5f0da422045784db9cb838a89.stex"
 [deps]
 
 source_file="res://gfx/tiles/neon.svg"
-source_md5="a5e2075180cc83e78b322160faf0a4c7"
-
 dest_files=[ "res://.import/neon.svg-44afa9d5f0da422045784db9cb838a89.stex" ]
-dest_md5="295e56ad7f6bd98e0bb363f6c1b4faea"
 
 [params]
 

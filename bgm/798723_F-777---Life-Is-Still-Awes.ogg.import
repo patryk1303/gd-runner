@@ -7,10 +7,7 @@ path="res://.import/798723_F-777---Life-Is-Still-Awes.ogg-56a78b7a0e11fbc6af210f
 [deps]
 
 source_file="res://bgm/798723_F-777---Life-Is-Still-Awes.ogg"
-source_md5="9daa637e290ff045b2a73c38153412ad"
-
 dest_files=[ "res://.import/798723_F-777---Life-Is-Still-Awes.ogg-56a78b7a0e11fbc6af210feb316e465f.oggstr" ]
-dest_md5="aa45e5b67b9a7523c85c3c4c5e3b5d80"
 
 [params]
 

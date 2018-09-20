@@ -7,10 +7,7 @@ path="res://.import/bullet.png-186f19a3d344c2ae271330aec865e427.stex"
 [deps]
 
 source_file="res://gfx/bullet.png"
-source_md5="9fe43d82e09598fc96be75bcf60df249"
-
 dest_files=[ "res://.import/bullet.png-186f19a3d344c2ae271330aec865e427.stex" ]
-dest_md5="b5ec0a97ab57319dcb91b7357e0087cf"
 
 [params]
 

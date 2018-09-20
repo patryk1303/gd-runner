@@ -7,10 +7,7 @@ path="res://.import/trampoline.svg-97ac3c01af7f48905b89a430754d7f3f.stex"
 [deps]
 
 source_file="res://gfx/trampoline/trampoline.svg"
-source_md5="1dbc0fd8c9cbf638c6597575b86a8f3e"
-
 dest_files=[ "res://.import/trampoline.svg-97ac3c01af7f48905b89a430754d7f3f.stex" ]
-dest_md5="24e5cd0102286d74a0791b2d3109882c"
 
 [params]
 

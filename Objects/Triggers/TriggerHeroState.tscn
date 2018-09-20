@@ -6,7 +6,7 @@
 
 script/source = "extends \"_TriggerBase.gd\"
 
-export(String, \"standard\", \"leftright\") var new_state
+export(String, \"standard\", \"leftright\", \"flappy\") var new_state
 
 func _ready():
 	._ready()
